@@ -6,13 +6,11 @@ fun main() {
     val scanner = Scanner(System.`in`)
 
     println("--- APLIKASI PMB UMN ---")
-
     print("Masukkan Nama: ")
     val name = scanner.nextLine()
 
     print("Masukkan NIM (Wajib 5 Karakter): ")
     val nim = scanner.next()
-
     scanner.nextLine()
 
     if (nim.length != 5) {
@@ -32,9 +30,30 @@ fun main() {
         } else if (type == 2) {
             val s2 = Student(name, nim)
             println("Terdaftar di: ${s2.major} dengan GPA awal ${s2.gpa}")
-
         } else {
             println("Pilihan ngawur, pendaftaran batal!")
         }
     }
+
+    // --- TUGAS MANDIRI 1: LIBRARY FINE SYSTEM (CHECKPOINT 8) ---
+    println("\n--- SISTEM PEMINJAMAN BUKU ---")
+
+    print("Judul Buku: ")
+    val title = scanner.nextLine()
+
+    print("Nama Peminjam: ")
+    val borrower = scanner.nextLine()
+
+    print("Lama Pinjam (Hari): ")
+    var duration = scanner.nextInt()
+    scanner.nextLine()
+
+    if (duration < 0) {
+        duration = 1
+        println("LOG: Durasi tidak valid, otomatis diubah ke 1 hari.")
+    }
+
+    val loan = Loan(title, borrower, duration)
+    println("Detail Peminjaman: ${loan.bookTitle} oleh ${loan.borrower} selama ${loan.loanDuration} hari.")
+    println("Total Denda: Rp ${loan.calculateFine()}")
 }
