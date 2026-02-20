@@ -1,10 +1,14 @@
 package oop_00000110660_grandmoze.week02
 
-class Student (val name: String, val nim: String, var major: String) {
+// Refactor dengan Default Argument
+class Student (
+    val name: String,
+    val nim: String,
+    var gpa: Double = 0.0,
+    var major: String
+) {
 
-    // Secondary Constructor
-    // Memanggil Primary Constructor dengan nilai default untuk major
-    constructor(name: String, nim: String) : this(name, nim, "Non-Matriculated") {
+    constructor(name: String, nim: String) : this(name, nim, 0.0, "Non-Matriculated") {
         println("LOG: Menggunakan constructor jalur umum (Tanpa Jurusan).")
     }
 
