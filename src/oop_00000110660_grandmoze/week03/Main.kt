@@ -26,4 +26,17 @@ fun main() {
     println("Damage saat ini: ${mySword.damage}")
 
     println("Tier Senjata: ${mySword.tier}")
+
+    // --- TUGAS MANDIRI 2 (PLAYER) ---
+    println("\n--- Tugas 2: Player Testing ---")
+
+    val p = Player("JohnThor")
+
+    println("Menambah 50 XP...")
+    p.addXp(50)
+    println("Level saat ini: ${p.level}")
+
+    println("\nMenambah 60 XP...")
+    p.addXp(60)
+    println("Level saat ini: ${p.level}")
 }
