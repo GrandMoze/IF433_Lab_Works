@@ -11,8 +11,12 @@ class Employee(val name: String) {
             }
         }
 
-    // Hanya bisa diakses di dalam class ini
+    // Encapsulation: Private property
     private var performanceRating: Int = 3
+
+    // tax pajak dihitung 10% dari gaji saat ini
+    val tax: Double
+        get() = salary * 0.1
 
     fun increasePerformance() {
         performanceRating++

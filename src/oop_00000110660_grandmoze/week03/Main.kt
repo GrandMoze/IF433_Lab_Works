@@ -3,17 +3,16 @@ package oop_00000110660_grandmoze.week03
 fun main() {
     val e = Employee("Budi")
 
-    println("--- Test Validasi Salary ---")
-
-    // Skenario 1: Input salah (negatif)
-    println("Mencoba set gaji ke -1000...")
-    e.salary = -1000
+    // 1. Test Validasi Salary
+    println("--- 1. Test Validasi Salary ---")
+    e.salary = -1000 // Harusnya print Error
+    e.salary = 5000000
     println("Gaji saat ini: ${e.salary}")
 
-    println("---------------------------")
+    // 2. Test Encapsulation
+    e.increasePerformance()
+    // e.performanceRating = 5 // Jika ini di-uncomment, akan Error (Merah) karena private
 
-    // Skenario 2: Input benar (positif)
-    println("Mencoba set gaji ke 5000000...")
-    e.salary = 5000
-    println("Gaji saat ini: ${e.salary}")
+    // 3. Test Computed Property (Pajak)
+    println("Pajak yang harus dibayar (10%): ${e.tax}")
 }
