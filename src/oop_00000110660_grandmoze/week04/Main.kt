@@ -2,7 +2,7 @@ package oop_00000110660_grandmoze.week04
 
 fun main() {
     println("--- Testing Vehicle ---")
-    val generalVehicle = Vehicle(brand= "Sepeda Onthel")
+    val generalVehicle = Vehicle(brand = "Sepeda Onthel")
     generalVehicle.honk()
     generalVehicle.accelerate()
 
@@ -11,4 +11,11 @@ fun main() {
     myCar.openTrunk()
     myCar.honk()
     myCar.accelerate()
+
+    //Tugas Mandiri 1
+    println("\n--- Testing Electric Car ---")
+    val myElectricCar = ElectricCar(brand = "Tesla Model 3", numberOfDoors = 4, batteryCapacity = 85)
+    myElectricCar.openTrunk()
+    myElectricCar.honk()
+    myElectricCar.accelerate()
 }
