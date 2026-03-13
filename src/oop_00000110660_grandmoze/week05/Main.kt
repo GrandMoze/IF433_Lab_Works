@@ -45,5 +45,11 @@ fun main() {
     for (pay in daftarPayment) {
         println("Memproses pembayaran untuk: ${pay.accountName}")
         pay.processPayment(75000.0)
+
+        if (pay is EWallet) {
+            println("Saldo kurang? Melakukan auto top-up...")
+            pay.topUp(50000.0)
+            pay.processPayment(75000.0)
+        }
     }
 }
