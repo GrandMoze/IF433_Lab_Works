@@ -33,4 +33,17 @@ fun main() {
 
     val luasLingkaran = helper.hitungLuas(7.0)
     println("Luas Lingkaran (r 7.0): $luasLingkaran")
+
+
+
+    println("\n=== SISTEM PEMBAYARAN ===")
+    val dompetKu = EWallet("Naufal E-Wallet", 50000.0)
+    val kartuKu = CreditCard("Naufal CC", 100000.0)
+
+    val daftarPayment: List<PaymentMethod> = listOf(dompetKu, kartuKu)
+
+    for (pay in daftarPayment) {
+        println("Memproses pembayaran untuk: ${pay.accountName}")
+        pay.processPayment(75000.0)
+    }
 }
