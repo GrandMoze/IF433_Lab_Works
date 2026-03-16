@@ -22,4 +22,13 @@ fun main() {
     val lampuTamu = SmartLamp("L01", "Ruang Tamu")
     val googleNest = SmartSpeaker("S01", "Google Nest Dapur")
     val ezvizGarasi = SmartCCTV("C01", "Ezviz Garasi")
+
+    println("\n=== TESTING SMART HOME HUB ===")
+    val hub = SmartHomeHub()
+    hub.addDevice(lampuTamu)
+    hub.addDevice(googleNest)
+    hub.addDevice(ezvizGarasi)
+
+    hub.activateSecurityMode()
+    hub.turnOffAllSwitches()
 }
