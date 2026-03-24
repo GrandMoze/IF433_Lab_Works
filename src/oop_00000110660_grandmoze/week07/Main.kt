@@ -47,4 +47,12 @@ fun main() {
     println("Drop Chance Legendary: ${ItemRarity.LEGENDARY.dropChance}%")
     val playerWeapon = Weapon.forgeStarterSword()
     println("Senjata Awal: ${playerWeapon.item.name} | Durability: ${playerWeapon.durability}")
+
+    println("\n=== SIMULASI UPGRADE & BATTLE EVENT ===")
+    val upgradedItem = playerWeapon.item.copy(name = "Pedang Kayu Upgrade", damage = 25)
+
+    processEvent(SafeZone)
+    processEvent(MonsterEncounter("Goblin Nakal"))
+    processEvent(LootDropped(upgradedItem))
+    processEvent(GameOver("Terkena jebakan racun"))
 }
