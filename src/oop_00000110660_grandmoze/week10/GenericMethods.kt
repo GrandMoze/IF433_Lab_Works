@@ -7,3 +7,4 @@ fun <T> printData(data: T) {
 fun <T> processData(input: T): T {
     return input
 }
+
