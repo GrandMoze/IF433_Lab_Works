@@ -32,4 +32,21 @@ fun main() {
         println("Siklus pengecekan dispenser pagi selesai.")
     }
 
+    println("\n=== JADWAL MAKAN SORE ===")
+    currentKibbleStock = 1000
+
+    runCatching {
+        dispenseKibble(30, currentKibbleStock, false)
+    }.onSuccess { newStock ->
+        currentKibbleStock = newStock
+        println("Makan sore sukses! Sisa stok kibble: $currentKibbleStock gr")
+    }.onFailure { error ->
+        println("Peringatan ke Pemilik: ${error.message}")
+        println("(Opsional: Berikan chicken jerky secara manual)")
+    }
+    // CHECKPOINT 17: commit "week12: (task) execute feeding using runCatching"
+    // CHECKPOINT 18: commit "week12: (task) handle feeding success using onSuccess"
+    // CHECKPOINT 19: commit "week12: (task) handle feeding failure using onFailure"
+
+    // CHECKPOINT 20: commit "week12: (task) test full robust smart feeder pipeline"
 }
