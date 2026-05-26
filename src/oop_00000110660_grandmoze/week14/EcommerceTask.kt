@@ -73,3 +73,34 @@ class SafeOrderProcessor(
         notifier.sendNotification(itemName)
     }
 }
+
+// 4. Abstraksi untuk Kalkulasi Harga (OCP)
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+    fun getCustomerType(): String
+}
+
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double): Double = price
+    override fun getCustomerType(): String = "REGULAR"
+}
+
+class VipPricing : PricingStrategy {
+    override fun calculate(price: Double): Double = price * 0.90
+    override fun getCustomerType(): String = "VIP"
+}
+
+// Update Class Processor Utama agar mendukung penuh OCP
+class UltimateOrderProcessor(
+    private val repo: OrderRepository,
+    private val notifier: NotificationService
+) {
+    fun processOrder(itemName: String, basePrice: Double, pricingStrategy: PricingStrategy) {
+        val finalPrice = pricingStrategy.calculate(basePrice)
+        val customerType = pricingStrategy.getCustomerType()
+
+        println("Memproses pesanan $itemName seharga $finalPrice")
+        repo.saveOrder(itemName, finalPrice, customerType)
+        notifier.sendNotification(itemName)
+    }
+}
